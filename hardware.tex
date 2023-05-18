@@ -1,0 +1,362 @@
+\let\negmedspace\undefined
+\let\negthickspace\undefined
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+%\documentclass[conference]{IEEEtran}
+%\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{txfonts}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+\usepackage{listings}
+%
+%\usepackage{setspace}
+%\usepackage{gensymb}
+%\doublespacing
+%\singlespacing
+
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+%\usepackage{relsize}
+%\usepackage[cmex10]{amsmath}
+%\usepackage{amsthm}
+%\interdisplaylinepenalty=2500
+%\savesymbol{iint}
+%\usepackage{txfonts}
+%\restoresymbol{TXF}{iint}
+%\usepackage{wasysym}
+%\usepackage{amsthm}
+%\usepackage{iithtlc}
+%\usepackage{mathrsfs}
+%\usepackage{txfonts}
+%\usepackage{stfloats}
+%\usepackage{bm}
+%\usepackage{cite}
+%\usepackage{cases}
+%\usepackage{subfig}
+%\usepackage{xtab}
+%\usepackage{longtable}
+%\usepackage{multirow}
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+%\usepackage{enumitem}
+%\usepackage{mathtools}
+%\usepackage{tikz}
+%\usepackage{circuitikz}
+%\usepackage{verbatim}
+%\usepackage{tfrupee}
+%\usepackage{stmaryrd}
+%\usetkzobj{all}
+%    \usepackage{color}                                            %%
+%    \usepackage{array}                                            %%
+%    \usepackage{longtable}                                        %%
+%    \usepackage{calc}                                             %%
+%    \usepackage{multirow}                                         %%
+%    \usepackage{hhline}                                           %%
+%    \usepackage{ifthen}                                           %%
+%optionally (for landscape tables embedded in another document): %%
+%    \usepackage{lscape}     
+%\usepackage{multicol}
+%\usepackage{chngcntr}
+%\usepackage{enumerate}
+
+%\usepackage{wasysym}
+%\newcounter{MYtempeqncnt}
+\DeclareMathOperator*{\Res}{Res}
+%\renewcommand{\baselinestretch}{2}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+
+\lstset{
+	%language=C,
+	frame=single, 
+	breaklines=true,
+	columns=fullflexible
+}
+%\lstset{
+	%language=tex,
+	%frame=single, 
+	%breaklines=true
+	%}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\newcommand{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
+\newcommand{\comb}[1][-1mu]{\permcomb[#1]{C}}
+
+\begin{document}
+	%
+	
+	
+	\newtheorem{theorem}{Theorem}[section]
+	\newtheorem{problem}{Problem}
+	\newtheorem{proposition}{Proposition}[section]
+	\newtheorem{lemma}{Lemma}[section]
+	\newtheorem{corollary}[theorem]{Corollary}
+	\newtheorem{example}{Example}[section]
+	\newtheorem{definition}[problem]{Definition}
+	%\newtheorem{thm}{Theorem}[section] 
+	%\newtheorem{defn}[thm]{Definition}
+	%\newtheorem{algorithm}{Algorithm}[section]
+	%\newtheorem{cor}{Corollary}
+	\newcommand{\BEQA}{\begin{eqnarray}}
+		\newcommand{\EEQA}{\end{eqnarray}}
+	%	\newcommand{\define}{\stackrel{\triangle}{=}}
+	
+	\bibliographystyle{IEEEtran}
+	%\bibliographystyle{ieeetr}
+	
+	
+	\providecommand{\mbf}{\mathbf}
+	\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+	\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+	\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+	\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+	\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+	\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+	\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+	\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+	\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+	\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+	\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+	\theoremstyle{remark}
+	\newtheorem{rem}{Remark}
+	\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+	% \providecommand{\abs}[1]{\left\vert#1\right\vert}
+	\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+	% \providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+	%\providecommand{\norm}[1]{\lVert#1\rVert}
+	\providecommand{\mtx}[1]{\mathbf{#1}}
+	% \providecommand{\mean}[1]{E\left[ #1 \right]}
+	\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+	%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+	\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+	\newcommand{\solution}{\noindent \textbf{Solution: }}
+	\newcommand{\cosec}{\,\text{cosec}\,}
+	\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+	\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+	\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+	%\numberwithin{equation}{section}
+	%\numberwithin{equation}{subsection}
+	%\numberwithin{problem}{section}
+	%\numberwithin{definition}{section}
+	%\makeatletter
+	%\@addtoreset{figure}{problem}
+	%\makeatother
+	
+	%\let\StandardTheFigure\thefigure
+	\let\vec\mathbf
+	%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
+	%\renewcommand{\thefigure}{\theproblem}
+	%\setlist[enumerate,1]{before=\renewcommand\theequation{\theenumi.\arabic{equation}}
+		%\counterwithin{equation}{enumi}
+		
+		
+		%\renewcommand{\theequation}{\arabic{subsection}.\arabic{equation}}
+		
+		%\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+		%     \def\rightbox#1{\makebox[0in][r]{#1}}
+		%     \def\centbox#1{\makebox[0in]{#1}}
+		%     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+		%     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+		
+		\vspace{3cm}
+		
+		\title{
+			%	\logo{
+				Probability Hardware Project\\
+				Random Number Generator
+				%	}
+		}
+		\author{ Name:Dikshant Khandelwal
+			
+			Roll no:CS22BTECH11017
+		% <-this % stops a space
+			
+			
+		}	
+		%\title{
+			%	\logo{Matrix Analysis through Octave}{\begin{center}\includegraphics[scale=.24]{tlc}\end{center}}{}{HAMDSP}
+			%}
+		
+		
+		% paper title
+		% can use linebreaks \\ within to get better formatting as desired
+		%\title{Matrix Analysis through Octave}
+		%
+		%
+		% author names and IEEE memberships
+		% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+		% a structure at a ~ so this keeps an author's name from being broken across
+		% two lines.
+		% use \thanks{} to gain access to the first footnote area
+		% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+		% was not built to handle multiple paragraphs
+		%
+		
+		%\author{<-this % stops a space
+			%\thanks{}}
+		%}
+	% note the % following the last \IEEEmembership and also \thanks - 
+	% these prevent an unwanted space from occurring between the last author name
+	% and the end of the author line. i.e., if you had this:
+	% 
+	% \author{....lastname \thanks{...} \thanks{...} }
+	%                     ^------------^------------^----Do not want these spaces!
+	%
+	% a space would be appended to the last name and could cause every name on that
+	% line to be shifted left slightly. This is one of those "LaTeX things". For
+	% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
+	% "AB" then you have to do: "\textbf{A}\textbf{B}"
+	% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+
+
+
+% The paper headers
+%\markboth{Journal of \LaTeX\ Class Files,~Vol.~6, No.~1, January~2007}%
+%{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Journals}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+% 
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer review papers.                   ***
+% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
+% you desire.
+
+
+
+
+% If you want to put a publisher's ID mark on the page you can do it like
+% this:
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2007 IEEE}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark.
+
+
+
+% make the title area
+\maketitle
+
+\newpage
+
+%\tableofcontents
+
+\bigskip
+
+
+%\renewcommand{\theequation}{\theenumi}
+
+%\begin{abstract}
+%%\boldmath
+%In this letter, an algorithm for evaluating the exact analytical bit error rate  (BER)  for the piecewise linear (PL) combiner for  multiple relays is presented. Previous results were available only for upto three relays. The algorithm is unique in the sense that  the actual mathematical expressions, that are prohibitively large, need not be explicitly obtained. The diversity gain due to multiple relays is shown through plots of the analytical BER, well supported by simulations. 
+%
+%\end{abstract}
+% IEEEtran.cls defaults to using nonbold math in the Abstract.
+% This preserves the distinction between vectors and scalars. However,
+% if the journal you are submitting to favors bold math in the abstract,
+% then you can use LaTeX's standard command \boldmath at the very start
+% of the abstract to achieve this. Many IEEE journals frown on math
+% in the abstract anyway.
+
+% Note that keywords are not normally used for peerreview papers.
+%\begin{IEEEkeywords}
+%Cooperative diversity, decode and forward, piecewise linear
+%\end{IEEEkeywords}
+
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+%\IEEEpeerreviewmaketitle
+
+
+\maketitle
+
+\section{Introduction}
+In this report, we will discuss the implementation of a random number generator using shift registers. The generator will utilize a 555 timer to generate the clock signal, which will be connected to D flip-flops to create the shift register. The output of the shift register will be connected to a decoder, and the resulting numbers will be displayed using a 7-segment display.
+
+\section{Experimental Setup}
+\subsection{Materials}
+The following materials are required for the experiment:
+\begin{itemize}
+  \item 555 timer IC
+  \item Two 7474 D flip-flop ICs
+  \item One 7486 XOR gate IC
+  \item 7447 decoder IC
+  \item 7-segment display
+  \item Resistors
+  \item Capacitors
+  \item Breadboard
+  \item Jumper wires
+  \item Power supply
+\end{itemize}
+
+\subsection{Procedure}
+Follow these steps to set up the experiment:
+
+1. Set up the breadboard and connect the power supply to the VCC (positive supply) and GND (ground) rails.
+
+2. Place the 555 timer IC on the breadboard and connect its VCC pin (pin 8) to the VCC rail and the GND pin (pin 1) to the GND rail.
+
+3. Connect a resistor (R1) between the discharge pin (pin 7) of the 555 timer and the junction point of the resistor and capacitor connections.
+
+4. Connect a capacitor (C1) between the discharge pin (pin 7) and the GND rail.
+
+5. Connect the output pin (pin 3) of the 555 timer to the clock signal input of the D flip-flops.
+
+6. Place the two 7474 D flip-flop ICs on the breadboard and connect their VCC pins (pin 14) to the VCC rail and their GND pins (pin 7) to the GND rail.
+
+7. Connect the clock (CLK) pin of each D flip-flop to the output pin (pin 3) of the 555 timer.
+
+8. Connect the Q output pin (pin 1) of the first D flip-flop to the D input pin (pin 2) of the second D flip-flop.
+
+9. Place the 7486 XOR gate IC on the breadboard and connect its VCC pin (pin 14) to the VCC rail and its GND pin (pin 7) to the GND rail.
+
+
+10. Connect the XOR gate output pin (pin 3) to the D input pin (pin 2) of the first D flip-flop.
+
+11. Connect the outputs of the shift register (Q3, Q2, Q1, Q0) to the inputs of the decoder (pins 4, 2, 1, 7).
+
+12. Connect the corresponding outputs (a-g) of the decoder to the segments of the 7-segment display using appropriate resistors.
+
+13. Connect the VCC and GND pins of each IC to the VCC and GND rails on the breadboard.
+
+
+14. Provide power to the circuit by connecting the power supply.
+
+15. Observe the output on the 7-segment display.
+
+\section{Conclusion}
+In this experiment, we successfully implemented a random number generator using shift registers. The circuit utilized a 555 timer to generate the clock signal, which was connected to D flip-flops to create the shift register. The output of the shift register was connected to a decoder, which drove a 7-segment display to display the generated random numbers.
+
+\section{Conclusion}
+\includegraphics[width=7cm, height=14cm]{/home/apar/Desktop/seven.jpeg}
+\end{document}
